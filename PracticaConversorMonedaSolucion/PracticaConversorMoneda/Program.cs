@@ -13,7 +13,11 @@ namespace PracticaConversorMoneda
 
             while (seleccion != "q" && seleccion != "Q")
             {
-                Console.Write("Introduce moneda a convertir (E euro), L libra, D dolar) Q)uit:");
+                Console.WriteLine("=== Introduce moneda a convertir ===");
+                Console.WriteLine("===        (E) Euros             ===");
+                Console.WriteLine("===        (L) Libra             ===");
+                Console.WriteLine("===        (D) Dolar             ===");
+                Console.WriteLine("(Q) Salir");
 
                 seleccion = Console.ReadLine();
                 double cantidadMoneda = 0;
@@ -26,7 +30,9 @@ namespace PracticaConversorMoneda
                         Console.Write("Introduce la cantidad: ");
                         cantidadMoneda = Double.Parse(Console.ReadLine());
                         moneda1 = "EUR";
-                        Console.Write("En que moneda deseas convertir (L libra, D dolar):");
+                        Console.WriteLine("=== En que moneda deseas convertir ===");
+                        Console.WriteLine("===         (L) Libra              ===");
+                        Console.WriteLine("===         (D) Dolar              ===");
                         seleccionCambio = Console.ReadLine();
                         switch (seleccionCambio)
                         {
@@ -34,13 +40,13 @@ namespace PracticaConversorMoneda
                             case "l":
                                 moneda2 = "LIBRA";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                             case "D":
                             case "d":
                                 moneda2 = "DOLAR";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                         }
                         break;
@@ -50,7 +56,9 @@ namespace PracticaConversorMoneda
                         Console.Write("Introduce la cantidad: ");
                         cantidadMoneda = Double.Parse(Console.ReadLine());
                         moneda1 = "LIBRA";
-                        Console.Write("En que moneda deseas convertir (E euro, D dolar):");
+                        Console.WriteLine("=== En que moneda deseas convertir ===");
+                        Console.WriteLine("===         (L) Libra              ===");
+                        Console.WriteLine("===         (D) Dolar              ===");
                         seleccionCambio = Console.ReadLine();
                         switch (seleccionCambio)
                         {
@@ -58,13 +66,13 @@ namespace PracticaConversorMoneda
                             case "e":
                                 moneda2 = "EURO";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                             case "D":
                             case "d":
                                 moneda2 = "DOLAR";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                         }
                         break;
@@ -73,7 +81,9 @@ namespace PracticaConversorMoneda
                         Console.Write("Introduce la cantidad: ");
                         cantidadMoneda = Double.Parse(Console.ReadLine());
                         moneda1 = "DOLAR";
-                        Console.Write("En que moneda deseas convertir (E euro, L libra):");
+                        Console.WriteLine("=== En que moneda deseas convertir ===");
+                        Console.WriteLine("===         (L) Libra              ===");
+                        Console.WriteLine("===         (D) Dolar              ===");
                         seleccionCambio = Console.ReadLine();
                         switch (seleccionCambio)
                         {
@@ -81,13 +91,13 @@ namespace PracticaConversorMoneda
                             case "e":
                                 moneda2 = "EURO";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                             case "L":
                             case "l":
                                 moneda2 = "LIBRA";
                                 resultado = Monedas.CalculoConversor(cantidadMoneda, moneda1, moneda2);
-                                Console.WriteLine($"El cambio es: {resultado:f2}");
+                                Console.WriteLine($"El valor al cambio es: (((( {resultado:f2} ))))");
                                 break;
                         }
                         break;
