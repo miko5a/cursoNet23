@@ -30,8 +30,7 @@ namespace PracticaConversorMoneda
                 {
                     case "E":
                     case "e":
-                        Console.Write("Introduce la cantidad: ");
-                        cantidadMoneda = Double.Parse(Console.ReadLine());
+                        cantidadMoneda = IngresarEntero();
                         moneda1 = "EUR";
                         Console.WriteLine("=== En que moneda deseas convertir ===");
                         Console.WriteLine("===         (L) Libra              ===");
@@ -56,11 +55,10 @@ namespace PracticaConversorMoneda
 
                     case "L":
                     case "l":
-                        Console.Write("Introduce la cantidad: ");
-                        cantidadMoneda = Double.Parse(Console.ReadLine());
+                        cantidadMoneda = IngresarEntero();
                         moneda1 = "LIBRA";
                         Console.WriteLine("=== En que moneda deseas convertir ===");
-                        Console.WriteLine("===         (L) Libra              ===");
+                        Console.WriteLine("===         (E) Euro              ===");
                         Console.WriteLine("===         (D) Dolar              ===");
                         seleccionCambio = Console.ReadLine();
                         switch (seleccionCambio)
@@ -81,9 +79,7 @@ namespace PracticaConversorMoneda
                         break;
                     case "D":
                     case "d":
-                        Console.Write("Introduce la cantidad: ");
-                        cantidadMoneda = Double.Parse(Console.ReadLine());
-                        
+                        cantidadMoneda = IngresarEntero();                        
                         moneda1 = "DOLAR";
                         Console.WriteLine("=== En que moneda deseas convertir ===");
                         Console.WriteLine("===         (L) Libra              ===");
@@ -118,5 +114,19 @@ namespace PracticaConversorMoneda
             }
         }
 
+        private static int IngresarEntero()
+        {
+            Console.Write("Introduce la cantidad: ");
+
+            int valor;
+            Console.Write("Introduce la cantidad: ");
+            while (!Int32.TryParse(Console.ReadLine(), out valor))
+            {
+                Console.WriteLine("El dato ingresado no es un entero");
+                Console.Write("Introduce la cantidad: ");
+            }
+
+            return valor;
+        }
     }
 }
