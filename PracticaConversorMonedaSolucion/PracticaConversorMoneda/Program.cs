@@ -116,8 +116,6 @@ namespace PracticaConversorMoneda
 
         private static int IngresarEntero()
         {
-            Console.Write("Introduce la cantidad: ");
-
             int valor;
             Console.Write("Introduce la cantidad: ");
             while (!Int32.TryParse(Console.ReadLine(), out valor))
