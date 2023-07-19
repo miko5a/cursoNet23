@@ -123,7 +123,6 @@ namespace PracticaConversorMoneda
                 Console.WriteLine("El dato ingresado no es un entero");
                 Console.Write("Introduce la cantidad: ");
             }
-
             return valor;
         }
     }
