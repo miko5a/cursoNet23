@@ -4,6 +4,8 @@ namespace PracticaConversorMoneda
 {
     internal class Program
     {
+        private static double cont;
+
         static void Main(string[] args)
         {
             string seleccion = String.Empty;
@@ -13,6 +15,7 @@ namespace PracticaConversorMoneda
 
             while (seleccion != "q" && seleccion != "Q")
             {
+                Console.WriteLine(" ");
                 Console.WriteLine("=== Introduce moneda a convertir ===");
                 Console.WriteLine("===        (E) Euros             ===");
                 Console.WriteLine("===        (L) Libra             ===");
@@ -80,6 +83,7 @@ namespace PracticaConversorMoneda
                     case "d":
                         Console.Write("Introduce la cantidad: ");
                         cantidadMoneda = Double.Parse(Console.ReadLine());
+                        
                         moneda1 = "DOLAR";
                         Console.WriteLine("=== En que moneda deseas convertir ===");
                         Console.WriteLine("===         (L) Libra              ===");
@@ -104,6 +108,7 @@ namespace PracticaConversorMoneda
 
                     case "q":
                     case "Q":
+                        Environment.Exit(0);
                         break;
 
                     default:
