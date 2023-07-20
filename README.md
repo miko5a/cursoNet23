@@ -8,3 +8,6 @@ Módulo 06
 - Práctica 1 (PracticaVehiculosSolucion)
 - Práctica 2 (PracticaConversorMonedaSolucion)
 
+
+Ejemplos
+- Ejemplo Herencia (EjemploHerenciaSolucion)
