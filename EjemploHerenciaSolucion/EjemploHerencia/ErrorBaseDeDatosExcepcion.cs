@@ -17,9 +17,9 @@ namespace EjemploHerencia
             FechaHoraExcepcion = fechaHoraExcepcion;
         }
 
-        public string toString()
+        public string errorString()
         {
-            return $" Error a la hora: {FechaHoraExcepcion} con mensaje: {Mensaje}";
+            return $" (Error) a la hora: {FechaHoraExcepcion} con mensaje: {Mensaje}";
         }
     }
 }

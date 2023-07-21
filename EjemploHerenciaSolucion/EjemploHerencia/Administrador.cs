@@ -31,7 +31,7 @@ namespace EjemploHerencia
 
         public string ConsultaPlazaParking()
         {
-            return new ErrorBaseDeDatosExcepcion("ERROR gravisimo!!!", DateTime.Now).toString();
+            return new ErrorBaseDeDatosExcepcion("[Fallo en la consulta de la plaza de parking]", DateTime.Now).errorString();
 
             //return PlazaParking ? NumeroPlaza : "No tiene plaza";
             
