@@ -10,11 +10,29 @@ namespace EjemploHerencia
         public Administrador(string nombre) : base(nombre)
         {
         }
+        public Administrador(string nombre, bool plazaParking, int numeroPlaza) : base(nombre)
+        {
+            PlazaParking = plazaParking;
+            NumeroPlaza = numeroPlaza;
+        }
+
+        public Administrador(string nombre, bool plazaParking) : base(nombre)
+        {
+            PlazaParking = plazaParking;
+        }
+
+        public bool PlazaParking { get; set; }
+        public int NumeroPlaza { get; set; }
 
         public override string ToString()
         {
-            return $"[ Administrador. Nombre: {Nombre} " +
-                $" Dias Vacaciones: {diasVacaciones}";
+            if (PlazaParking == true)
+            {
+                return $" Administrador. Nombre: [ {Nombre} ] " +
+                $" con plaza de aparcamiento [ {NumeroPlaza} ]";
+            }
+
+            return $" Administrador. Nombre: [ {Nombre} ] ";
         }
     }
 }

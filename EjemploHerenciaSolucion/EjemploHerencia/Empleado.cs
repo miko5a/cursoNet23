@@ -14,17 +14,17 @@ namespace EjemploHerencia
             Nombre = nombre;
         }
 
-        //public Empleado()
-        //{
-        //    Nombre = "";
-        //}
+        public Empleado(string nombre, Empleado jefe)
+        {
+            Nombre = nombre;
+            Jefe = jefe;
+        }
 
         protected double diasVacaciones;
 
         public override string ToString()
         {
-            return $"[ Empleado. Nombre: {Nombre} " +
-                $" Dias Vacaciones: {diasVacaciones}";
+            return $" Empleado. Nombre: [ {Nombre} ] ";
         }
     }
 }

@@ -8,21 +8,28 @@ namespace EjemploHerencia
         static void Main(string[] args)
         {
 
-            //Empleado juan = new Trabajador("Juan");
-            //Administrador maria = new Administrador("Maria");
-            //jose.Jefe = maria;
-
-            Trabajador juan = new Trabajador("Juan");
+            Trabajador juan = new Trabajador("Juan", "Tarde");
             Administrador maria = new Administrador("Maria");
             Empleado jose = new Empleado("Jose");
 
+            Trabajador pedro = new Trabajador("Pedro", "Mañana");
+            Trabajador miguel = new Trabajador("Miguel", true, "Acciona");
+            Administrador javier = new Administrador("Javier", true, 15);
+            Administrador pepe = new Administrador("Pepe", false);
 
-            //Console.WriteLine(jose.ToString());
+            juan.Jefe = maria;
+            pedro.Jefe = maria;
+
 
             var listaPersonas = new List<Empleado>();
             listaPersonas.Add(juan);
             listaPersonas.Add(maria);
             listaPersonas.Add(jose);
+
+            listaPersonas.Add(pedro);
+            listaPersonas.Add(miguel);
+            listaPersonas.Add(javier);
+            listaPersonas.Add(pepe);
 
             foreach (var personas in listaPersonas)
             {
