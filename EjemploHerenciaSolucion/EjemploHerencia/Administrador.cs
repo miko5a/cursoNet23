@@ -24,15 +24,23 @@ namespace EjemploHerencia
         public bool PlazaParking { get; set; }
         public int NumeroPlaza { get; set; }
 
+        public override void CalculoVacaciones()
+        {
+            diasVacaciones += 9;
+        }
+
         public override string ToString()
         {
+            CalculoVacaciones();
             if (PlazaParking == true)
             {
                 return $" Administrador. Nombre: [ {Nombre} ] " +
-                $" con plaza de aparcamiento [ {NumeroPlaza} ]";
+                $" con plaza de aparcamiento [ {NumeroPlaza} ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
             }
 
-            return $" Administrador. Nombre: [ {Nombre} ] ";
+            return $" Administrador. Nombre: [ {Nombre} ] ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
         }
     }
 }

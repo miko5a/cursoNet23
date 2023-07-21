@@ -31,9 +31,18 @@ namespace EjemploHerencia
             listaPersonas.Add(javier);
             listaPersonas.Add(pepe);
 
+            //foreach (var personas in listaPersonas)
+            //{
+            //    Console.WriteLine(personas.ToString());
+            //}
+
             foreach (var personas in listaPersonas)
             {
-                Console.WriteLine(personas.ToString());
+                var nombreMinuscula = personas.Nombre.ToLower();
+                if (nombreMinuscula.StartsWith("j"))
+                {
+                    Console.WriteLine(personas.ToString());
+                }
             }
 
 

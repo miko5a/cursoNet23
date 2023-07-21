@@ -24,26 +24,35 @@ namespace EjemploHerencia
         public string Turno { get; set; }
         public bool Externo { get; set; }
         public string Empresa { get; set; }
-
+        public override void CalculoVacaciones()
+        {
+            base.CalculoVacaciones();
+            diasVacaciones += 15;
+        }
         public override string ToString()
         {
+            CalculoVacaciones();
             if (Externo == true)
             {
                 return $" Trabajador. Nombre: [ {Nombre} ]  " +
-                $" de la Empresa [ {Empresa} ] ";
+                $" de la Empresa [ {Empresa} ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
             }
             if (Jefe != null)
             {
                 if (Turno != null)
                 {
                     return $" Trabajador. Nombre: [ {Nombre} ]" +
-                    $" trabaja de turno [ {Turno} ]  y su jefe es [{Jefe.Nombre} ] ";
+                    $" trabaja de turno [ {Turno} ]  y su jefe es [ {Jefe.Nombre} ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
                 }
                 return $" Trabajador. Nombre: [ {Nombre} ]  " +
-                    $" trabaja de turno [ {Turno} ] ";
+                    $" trabaja de turno [ {Turno} ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
             }
-            
-            return $" Trabajador. Nombre: [ {Nombre} ]  ";
+
+            return $" Trabajador. Nombre: [ {Nombre} ]" +
+                $" días de vacaciones: [ {diasVacaciones} ]";
         }
     }
 }
