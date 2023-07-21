@@ -31,22 +31,51 @@ namespace EjemploHerencia
             listaPersonas.Add(javier);
             listaPersonas.Add(pepe);
 
+            var listaPersonas2 = new List<Empleado>();
+            listaPersonas2.Add(juan);
+            listaPersonas2.Add(maria);
+            listaPersonas2.Add(jose);
+
+            //Mostrar Empleados
+
             //foreach (var personas in listaPersonas)
             //{
             //    Console.WriteLine(personas.ToString());
             //}
 
-            foreach (var personas in listaPersonas)
+
+
+
+            // Mostrar Empelados que empiezan con la letra "J"
+            var resultado = from emp in listaPersonas
+                            where emp.Nombre.ToLower().StartsWith("j")
+                            orderby emp.Nombre ascending 
+                            select emp;
+
+
+            var resultado2 = from emp in listaPersonas
+                             join esx in listaPersonas2
+                             on emp.Nombre equals esx.Nombre
+                             select emp;
+
+            //foreach (var item in resultado2)
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+
+
+            try
             {
-                var nombreMinuscula = personas.Nombre.ToLower();
-                if (nombreMinuscula.StartsWith("j"))
+                if (javier.PlazaParking)
                 {
-                    Console.WriteLine(personas.ToString());
+                    Console.WriteLine(javier.ConsultaPlazaParking());
                 }
             }
+            catch (Exception)
+            {
 
-
-
+                throw;
+            }
 
         }
     }

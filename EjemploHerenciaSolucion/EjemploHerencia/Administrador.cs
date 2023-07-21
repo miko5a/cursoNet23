@@ -29,6 +29,14 @@ namespace EjemploHerencia
             diasVacaciones += 9;
         }
 
+        public string ConsultaPlazaParking()
+        {
+            return new ErrorBaseDeDatosExcepcion("ERROR gravisimo!!!", DateTime.Now).toString();
+
+            //return PlazaParking ? NumeroPlaza : "No tiene plaza";
+            
+        }
+
         public override string ToString()
         {
             CalculoVacaciones();
