@@ -10,4 +10,4 @@ Módulo 06
 
 
 Ejemplos
-- Ejemplo Herencia (EjemploHerenciaSolucion)
+- Ejemplo Herencia y Excepciones (EjemploHerenciaSolucion)
