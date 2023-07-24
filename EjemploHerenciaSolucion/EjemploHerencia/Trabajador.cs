@@ -54,5 +54,20 @@ namespace EjemploHerencia
             return $" Trabajador. Nombre: [ {Nombre} ]" +
                 $" días de vacaciones: [ {diasVacaciones} ]";
         }
+
+        public string ConsultaTurno()
+        {
+            if (Turno != null)
+            {
+                return $" Trabajador. Nombre: [ {Nombre} ]" +
+                $" trabaja de turno [ {Turno} ] ";
+            }
+            else
+            {
+                return $" Trabajador. Nombre: [ {Nombre} ]" +
+                $" no tiene turno ";
+            }
+            //throw new NotImplementedException();
+        }
     }
 }
