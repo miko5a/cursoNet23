@@ -35,6 +35,7 @@ namespace ImportarJson
             monedas.Add(moneda3);
             monedas.Add(moneda4);
 
+            // Serializo la lista de monedas en un json
             string json = JsonConvert.SerializeObject(monedas);
 
             //Escribo en el archivo
