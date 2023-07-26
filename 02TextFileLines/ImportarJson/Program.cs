@@ -32,15 +32,28 @@ namespace ImportarJson
             var monedas = new List<Monedas>();
             monedas.Add(moneda1);
             monedas.Add(moneda2);
+            monedas.Add(moneda3);
+            monedas.Add(moneda4);
 
             string json = JsonConvert.SerializeObject(monedas);
 
+            //Escribo en el archivo
+            //TODO: Comprobar si el directorio existe
             File.WriteAllText(jsonPath, json);
-            Console.WriteLine(json);
+           
+            
+            //Leer Archivo
+            string readText = File.ReadAllText(jsonPath);
+            // Deserializa el json en la lista de monedas
+            List<Monedas> listaMonedas = JsonConvert.DeserializeObject<List<Monedas>>(readText);
 
-            //Monedas s = JsonConvert.DeserializeObject<Monedas>(json);
-
-            //Console.WriteLine(s.valorEnDolares);
+            foreach (Monedas moneda in listaMonedas)
+            {
+                string name = moneda.nombre;
+                string code = moneda.codigo;
+                double value = moneda.valorEnDolares;
+                Console.WriteLine($" Moneda: {name} | Codigo: {code} | Valor en USD: {value}.");
+            }
 
         }
     }
