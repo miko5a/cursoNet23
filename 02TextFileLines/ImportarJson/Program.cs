@@ -53,7 +53,14 @@ namespace ImportarJson
                 string name = moneda.nombre;
                 string code = moneda.codigo;
                 double value = moneda.valorEnDolares;
+
+                if (name == "Euro")
+                {
+                    code = "EURR";
+                }
+
                 Console.WriteLine($" Moneda: {name} | Codigo: {code} | Valor en USD: {value}.");
+
             }
 
         }
