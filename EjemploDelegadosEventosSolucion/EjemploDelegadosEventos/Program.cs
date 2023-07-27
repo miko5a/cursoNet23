@@ -41,8 +41,10 @@ namespace EjemploDelegadosEventos
 
             InfoMedioDelegado infoDiscosDelegado = new InfoMedioDelegado(tocaDiscos.ObtenerCancionesDisco);
             InfoMedioDelegado infoCDsDelegado = new InfoMedioDelegado(reproductorCDs.ObtenerCancionesCDs);
+            InfoMedioDelegado infoRadioCasete = new InfoMedioDelegado(reproductorCassete.ObtenerCancionesCassete);
 
-        
+
+
             // 3 - Utilizar Delegados
 
             // Probar un vinilo
@@ -54,6 +56,7 @@ namespace EjemploDelegadosEventos
             // Informacion de Medios introduciendo codigo barras
             inventarioMedios.ResultadoInfoMedioDelegado(infoDiscosDelegado,"1234");
             inventarioMedios.ResultadoInfoMedioDelegado(infoCDsDelegado,"5678");
+            inventarioMedios.ResultadoInfoMedioDelegado(infoRadioCasete, "1111");
 
 
 
