@@ -1,0 +1,63 @@
+<div class="d-flex h-100 text-center">
+    <div class="cover-container d-flex w-100 h-200 p-5 mx-auto flex-column">
+      <main class="px-4">
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-right">
+  
+              <main class="form-signin w-100 m-auto">
+                <form [formGroup]="myForm" (ngSubmit)="registro(myForm)" novalidate>
+                  <h1 class="display-6 text-uppercase mb-3">REGISTRO</h1>
+                  <div class="form-floating mb-3">
+                    <input formControlName="nombre" type="text" class="form-control" name="nombre"
+                      placeholder="Nombre de usuario" maxlength="55">
+                    <label>Nombre de usuario</label>
+                  </div>
+                  <div class="text-danger" *ngIf="myForm.get('nombre')?.errors && myForm.get('nombre')?.dirty">
+                    <p *ngIf="myForm.get('nombre')?.hasError('required')"><small>Campo requerido</small></p>
+                    <p *ngIf="myForm.get('nombre')?.hasError('maxlength')"><small>Menos de 50 caracteres</small></p>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input formControlName="telefono" type="number" class="form-control" name="telefono"
+                      placeholder="Teléfono" onKeyPress="if(this.value.length==25) return false;">
+                    <label>Teléfono:</label>
+                  </div>
+                  <div class="text-danger" *ngIf="myForm.get('telefono')?.errors && myForm.get('telefono')?.dirty">
+                    <p *ngIf="myForm.get('telefono')?.hasError('required')"><small>Campo requerido</small></p>
+                    <p *ngIf="myForm.get('telefono')?.hasError('maxlength')"><small>Menos de 25 caracteres</small></p>
+
+                  </div>
+                  <div class="form-floating mb-3">  
+                    <input formControlName="fechaNacimiento" name="fechaNacimiento" type="date" class="form-control"
+                      placeholder="Fecha nacimiento">
+                    <label for="floatingInput">Fecha nacimiento</label>
+                  </div>
+                  <div class="text-danger" *ngIf="myForm.get('fechaNacimiento')?.errors && myForm.get('fechaNacimiento')?.dirty">
+                    <p *ngIf="myForm.get('fechaNacimiento')?.hasError('required')"><small>Campo requerido</small></p>
+                    <p *ngIf="myForm.get('fechaNacimiento')?.hasError('max')"><small>Tienes que tener mas de 16 años para
+                      registrarte.</small></p>
+                  </div>
+                  <button class="btn btn-outline-secondary px-3 me-3 w-100 mb-4" type="submit" [disabled]="myForm.invalid"><i><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                        <path fill-rule="evenodd"
+                          d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                      </svg></i> Registrarse</button>
+
+                    <div name="resultado" class="alert alert-success gap-2 col-4 mx-auto" *ngIf='resFormateadoBien'>
+                    <div>{{ resFormateadoBien }}</div>
+                    </div>
+                    <div name="resultado" class="alert alert-danger gap-2 col-4 mx-auto" *ngIf='resFormateadoMal'>
+                      <div>{{ resFormateadoMal }}</div>
+                      </div>
+                </form>
+              </main>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
