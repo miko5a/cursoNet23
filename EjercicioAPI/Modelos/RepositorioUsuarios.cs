@@ -24,14 +24,12 @@ namespace Modelos
 
                         select new Consulta
                         {
-                            //id = h.id,
                             nombre = h.nombre,
                             telefono = h.telefono,
                             fechaNacimiento = h.fechaNacimiento,
                         };
-            var resultado = query.Take(10);
 
-            return resultado;
+            return query.Take(10);
         }
 
         public async Task<Usuario> getUser(string nombreUsuario)

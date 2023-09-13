@@ -6,7 +6,5 @@ public class UsuarioProfile : Profile
 {
     public UsuarioProfile()
     {
-        CreateMap<Consulta, UsuarioVerDto>();
-        CreateMap<UsuarioVerDto, Consulta>();
     }
 }
