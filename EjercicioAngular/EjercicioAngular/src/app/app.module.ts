@@ -8,6 +8,9 @@ import { RegistroUsuario } from './usuarioRegistro/usuarioRegistro.component';
 import { BarraNav } from './navBar/navbar.component';
 import { UsuarioLista } from './usuarios/usuario.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastContainerDirective } from 'ngx-toastr';
+
 
 
 const appRoutes: Routes = [
@@ -32,7 +35,12 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ 
+      positionClass: 'inline',
+      timeOut: 2000, }),
+    ToastContainerDirective,  
   ],
   providers: [],
   bootstrap: [AppComponent]

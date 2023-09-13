@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit,ViewChild  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RegistroService } from './usuarioRegistro.service';
 import { IUsuarioRegistro } from './usuarioRegistro';
@@ -7,13 +7,14 @@ import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { IUsuario } from "../usuarios/usuario";
 import { UsuarioService } from '../usuarios/usuario.service';
+import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'pm-registro',
   templateUrl: './usuarioRegistro.component.html',
 })
 
-export class RegistroUsuario {
+export class RegistroUsuario implements OnInit{
   errorMessage: IRespuesta | undefined; 
   sub!: Subscription;
   resultRegistro: IRespuesta | undefined; 
@@ -24,13 +25,23 @@ export class RegistroUsuario {
   fechaNacimiento: string ="";
   usuarios: IUsuario[] = [];
   myForm: FormGroup;
+  @ViewChild(ToastContainerDirective, { static: true })
+  toastContainer: ToastContainerDirective | undefined;
 
-  constructor(private registroService: RegistroService, public formulario: FormBuilder, public router: Router,private usuariosLista: UsuarioService) {
+  constructor(private registroService: RegistroService, 
+    public formulario: FormBuilder, 
+    public router: Router,
+    private usuariosLista: UsuarioService,
+    private toastrService: ToastrService) 
+    {
     this.myForm = this.formulario.group({
       nombre: ['', [Validators.required,Validators.maxLength(50)]],
       telefono: ['', [Validators.required,Validators.maxLength(25)]],
       fechaNacimiento: ['', [Validators.required,Validators.max(new Date(new Date().getFullYear() - 16).getTime())]],     
     });
+  }
+  ngOnInit(): void {
+    this.toastrService.overlayContainer = this.toastContainer;
   }
 
   registro(myForm : FormGroup): void {
@@ -48,14 +59,13 @@ export class RegistroUsuario {
       this.resultRegistro = registro;
       var estado = this.resultRegistro?.status
       var mensaje = this.resultRegistro?.message
-      this.resFormateadoBien = mensaje;
-      this.resFormateadoMal = undefined;
       this.cargarLista(true)
+      this.toastrService.success(mensaje);
     },
     error: err  => {
       this.errorMessage = err.error;
       var mensaje = this.errorMessage?.message
-      this.resFormateadoMal = mensaje;
+      this.toastrService.error(mensaje);
     }
   });  
  }
@@ -66,5 +76,5 @@ export class RegistroUsuario {
         this.usuarios = usuarios;
       },
     });
-} 
+  }
 }
