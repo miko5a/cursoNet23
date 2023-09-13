@@ -4,7 +4,7 @@ using Modelos;
 using AutoMapper;
 using Entidades;
 
-namespace Ejercicio.Controllers
+namespace EjercicioAPI.Controllers
 {
     [Route("api/usuarios")]
     [ApiController]

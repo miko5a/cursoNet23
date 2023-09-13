@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "Ejercicio": {
+    "EjercicioAPI": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

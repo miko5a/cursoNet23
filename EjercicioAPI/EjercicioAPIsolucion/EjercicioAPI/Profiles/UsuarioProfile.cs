@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Entidades;
 
-namespace ConversoApi.Profiles;
+namespace EjercicioAPI.Profiles;
 public class UsuarioProfile : Profile
 {
     public UsuarioProfile()
