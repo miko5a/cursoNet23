@@ -21,14 +21,11 @@ namespace EjercicioAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Consulta>>> GetUsuarios()
+        public async Task<ActionResult<List<UsuarioVerDto>>> GetUsuarios()
         {
             var usuarios = repositorioUsuarios.getUsuarios();
 
-            if (usuarios == null)
-            {
-                return NotFound();
-            }
+            if (usuarios == null){return NotFound();}
 
             return Ok(usuarios);
         }
@@ -49,9 +46,7 @@ namespace EjercicioAPI.Controllers
                 telefono = registro.telefono,
                 fechaNacimiento = registro.fechaNacimiento
             };
-
-            var usuario = await repositorioUsuarios.postUsuario(userAlta);
-        
+            var usuario = await repositorioUsuarios.postUsuario(userAlta);       
 
             return Ok(new Respuesta { Status = "Success", Message = "Usuario creado correctamente!" });
         }

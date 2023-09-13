@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IUsuario } from "./usuario";
 import { UsuarioService } from './usuario.service';
@@ -8,22 +8,28 @@ import { UsuarioService } from './usuario.service';
     templateUrl: './usuario.component.html'
 })
 
-export class UsuarioLista implements OnInit, OnDestroy{
-    usuarios: IUsuario[] = [];
+export class UsuarioLista implements OnChanges{
     errorMessage: string = '';
     sub!: Subscription;
-
+    
     constructor(private usuariosLista: UsuarioService) {}
 
-    ngOnInit(): void {
-        this.sub = this.usuariosLista.getUsuarios().subscribe({
-          next: usuarios => {
-            this.usuarios = usuarios;
-          },
-        });
+    @Input() usuarios: IUsuario[]=[];
+    @Output() cambio: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+
+    onClick(): void {
+      this.cambio.emit(false);
+    }
+    ngOnChanges(): void {
+      this.actualizar();
     }
 
-    ngOnDestroy(): void {
-        this.sub.unsubscribe();
-    }
+    actualizar() {  
+      this.sub = this.usuariosLista.getUsuarios().subscribe({
+        next: usuarios => {
+          this.usuarios = usuarios;
+        },
+      });
+     }
 }

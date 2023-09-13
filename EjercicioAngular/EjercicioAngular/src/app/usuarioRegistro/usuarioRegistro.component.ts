@@ -5,6 +5,8 @@ import { IUsuarioRegistro } from './usuarioRegistro';
 import { IRespuesta } from './respuesta';
 import { Validators, FormBuilder, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { IUsuario } from "../usuarios/usuario";
+import { UsuarioService } from '../usuarios/usuario.service';
 
 @Component({
   selector: 'pm-registro',
@@ -15,19 +17,15 @@ export class RegistroUsuario {
   errorMessage: IRespuesta | undefined; 
   sub!: Subscription;
   resultRegistro: IRespuesta | undefined; 
-  resultado:string="";
   resFormateadoBien:string | undefined;
   resFormateadoMal:string | undefined;
-
-  //Para Rellenar
   nombre: string="";
   telefono: string ="";
   fechaNacimiento: string ="";
-
+  usuarios: IUsuario[] = [];
   myForm: FormGroup;
 
-
-  constructor(private registroService: RegistroService, public formulario: FormBuilder, public router: Router) {
+  constructor(private registroService: RegistroService, public formulario: FormBuilder, public router: Router,private usuariosLista: UsuarioService) {
     this.myForm = this.formulario.group({
       nombre: ['', [Validators.required,Validators.maxLength(50)]],
       telefono: ['', [Validators.required,Validators.maxLength(25)]],
@@ -35,7 +33,6 @@ export class RegistroUsuario {
     });
   }
 
-  //Rellena con los datos del html un registro DTO
   registro(myForm : FormGroup): void {
     const registroDTO: IUsuarioRegistro = {
       nombre: myForm.value.nombre,
@@ -43,10 +40,8 @@ export class RegistroUsuario {
       fechaNacimiento: myForm.value.fechaNacimiento,
     };
     this.postRegistro(registroDTO);
-    //this.router.navigate(['/inicio'])
   }
 
-  //Realiza el POST enviando el registro rellenado
   postRegistro(registroDTO: IUsuarioRegistro): void {
   this.registroService.postRealizarRegistro(registroDTO).subscribe({
     next:(registro) => {
@@ -55,12 +50,21 @@ export class RegistroUsuario {
       var mensaje = this.resultRegistro?.message
       this.resFormateadoBien = mensaje;
       this.resFormateadoMal = undefined;
+      this.cargarLista(true)
     },
     error: err  => {
       this.errorMessage = err.error;
       var mensaje = this.errorMessage?.message
       this.resFormateadoMal = mensaje;
     }
-  });
-}
+  });  
+ }
+
+  cargarLista(cambio : boolean): void {
+    this.sub = this.usuariosLista.getUsuarios().subscribe({
+      next: usuarios => {
+        this.usuarios = usuarios;
+      },
+    });
+} 
 }

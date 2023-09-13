@@ -1,7 +1,7 @@
 import { IUsuarioRegistro } from './usuarioRegistro';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,22 +15,7 @@ export class RegistroService {
     this.http = httpClient;
   }
 
-  //Realiza el POST de registro
   postRealizarRegistro(registro: IUsuarioRegistro): Observable<any> {
-    return this.http.post(this.registroUrl, registro).pipe(
-        //tap(data => console.log('All: ', JSON.stringify(data))),
-        //catchError(this.handleError)
-      );
-  }
-
-  private handleError(err: HttpErrorResponse): Observable<never> {
-    let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
-      errorMessage = `Un error ha ocurrido: ${err.error.message}`;
-    } else {
-      errorMessage = `Servidor devuelve: ${err.status}, mensaje de error en: ${err.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
+    return this.http.post(this.registroUrl, registro);
   }
 }

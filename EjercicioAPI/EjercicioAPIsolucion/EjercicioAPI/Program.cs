@@ -16,15 +16,10 @@ builder.Services.AddControllers(configure =>
             setupAction.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
         });
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
 builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 builder.Services.AddDbContext<ContextoConversor>(options =>
             {
                 options.UseSqlServer(builder.Configuration["ConnectionStrings:ConexionDatos"]);
@@ -53,17 +48,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.UseRouting();
-
 app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-
 app.MapControllers();
-
 app.Run();

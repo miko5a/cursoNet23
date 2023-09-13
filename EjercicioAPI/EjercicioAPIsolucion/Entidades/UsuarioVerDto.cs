@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Consulta
+    public class UsuarioVerDto
     {
         public string nombre { get; set; }
         public string telefono { get; set; }
