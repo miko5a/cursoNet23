@@ -1,0 +1,6 @@
+.columna {
+    display: inline-block;
+    width: 50%; /* Esto divide el espacio en dos columnas iguales */
+    box-sizing: border-box; /* Esto evita que los márgenes y rellenos afecten al ancho */
+    vertical-align: top; /* Alinea las columnas en la parte superior */
+  }
