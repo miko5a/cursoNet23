@@ -18,16 +18,14 @@ builder.Services.AddDbContext<Contexto>(options =>
 builder.Services.AddScoped<IRepositorioPersona, RepositorioPersona>();
 
 builder.Services.AddCors(options =>
- {
-     options.AddPolicy("AllowAll",
-         builder =>
-         {
-             builder
-             .AllowAnyOrigin()
-             .AllowAnyMethod()
-             .AllowAnyHeader();
-         });
- });
+           {
+               options.AddDefaultPolicy(builder =>
+               {
+                   builder.WithOrigins("http://localhost:4200")
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
+               });
+           });
 
 var app = builder.Build();
 
@@ -44,4 +42,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors();
 app.Run();
