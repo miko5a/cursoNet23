@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamenSummerCamp", "ExamenS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.csproj", "{1741BA9D-470E-4EE5-8EC4-9FD476C6A68F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{117D2276-5504-4CDB-854B-75546B7B2C94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1741BA9D-470E-4EE5-8EC4-9FD476C6A68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1741BA9D-470E-4EE5-8EC4-9FD476C6A68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1741BA9D-470E-4EE5-8EC4-9FD476C6A68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117D2276-5504-4CDB-854B-75546B7B2C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117D2276-5504-4CDB-854B-75546B7B2C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117D2276-5504-4CDB-854B-75546B7B2C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117D2276-5504-4CDB-854B-75546B7B2C94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,3 +1,6 @@
+using Modelos;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,25 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<Contexto>(options =>
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ConexionDatos"]);
+});
+
+builder.Services.AddScoped<IRepositorioPersona, RepositorioPersona>();
+
+builder.Services.AddCors(options =>
+ {
+     options.AddPolicy("AllowAll",
+         builder =>
+         {
+             builder
+             .AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader();
+         });
+ });
 
 var app = builder.Build();
 
